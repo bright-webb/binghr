@@ -33,6 +33,28 @@ body {
   text-shadow: none;
 }
 
+:root {
+  --select-border: #777;
+  --select-focus: blue;
+  --select-arrow: var(--select-border);
+}
+
+select {
+  -webkit-appearance: none;
+     -moz-appearance: none;
+          appearance: none;
+  outline: none;
+  background-color: transparent;
+  border: none;
+  padding: 0 1em 0 0;
+  margin: 0;
+  width: 100%;
+  font-family: inherit;
+  font-size: inherit;
+  cursor: inherit;
+  line-height: inherit;
+}
+
 /*
  * A better looking default horizontal rule
  */
@@ -115,6 +137,7 @@ textarea {
   color: #999;
   display: block;
   width: 200px;
+  height: 30px;
 }
 .sidenav li a:active {
   color: #4d96ff;
@@ -123,6 +146,39 @@ textarea {
 .active-link {
   color: #4d96ff !important;
   border-right: 2px solid #4d96ff;
+}
+
+.content {
+  background: #f9fbfd;
+  width: 100%;
+  height: 100vh;
+  max-height: 100vh;
+  min-height: 100vh;
+  border: 1px solid #ddd;
+}
+
+.top-nav {
+  box-shadow: none !important;
+}
+
+.input-select {
+  width: 100%;
+  min-width: 15ch;
+  max-width: 30ch;
+  border: 1px solid var(--select-border);
+  border-radius: 0.25em;
+  padding: 0.25em 0.5em;
+  font-size: 1.25rem;
+  cursor: pointer;
+  line-height: 1.1;
+  background-color: #fff;
+  background-image: linear-gradient(to top, #f9f9f9, #fff 33%);
+}
+
+#search-addon {
+  position: relative;
+  left: 370px;
+  top: -25px;
 }
 
 /*
