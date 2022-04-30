@@ -13,8 +13,7 @@
     <meta property="og:image" content="">
 
     <link rel="manifest" href="site.webmanifest">
-    <link rel="apple-touch-icon" href="icon.png">
-    <!-- Place favicon.ico in the root directory -->
+
 
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet" />
     <!-- Google Fonts -->
@@ -34,6 +33,7 @@
     <div class="entry">
         <div class="container-fluid">
             <div class="row flex-nowrap">
+                <!-- Sidebar -->
                 <div class="col-auto  px-sm-1 px-0 bg-primary">
                     <div
                         class="d-flex flex-column align-items-center align-items-sm-start px-3 pt-2 text-white min-vh-100">
@@ -93,7 +93,7 @@
 
                     </div>
                 </div>
-
+                <!--// Sidebar -->
                 <div class="col-auto col-md-1 col-xl-2 px-sm-1 px-0 bg-white">
                     <div class="d-flex flex-column align-items-center align-items-sm-start px-3 pt-2 text-white min-vh-100"
                         style="100%">
@@ -163,7 +163,7 @@
                             <div class="container-fluid">
 
                                 <div style="width: 60%">
-                                    <!-- Navbar brand -->
+
                                     <form class="row">
                                         <div class="col-md-2">
                                             <h4>Users</h4>
@@ -177,17 +177,19 @@
                                         </div>
                                         <div class="col-md-8">
                                             <div class="form-group" style="width: 100%">
-                                                <input type="search" class="form-control rounded" placeholder="Search" aria-label="Search" aria-describedby="search-addon" />
+                                                <input type="search" class="form-control rounded" placeholder="Search"
+                                                    aria-label="Search" aria-describedby="search-addon" />
                                                 <span id="search-addon">
-                                                  <i class="fas fa-search"></i>
+                                                    <i class="fas fa-search"></i>
                                                 </span>
                                             </div>
                                         </div>
                                     </form>
                                 </div>
+
                                 <!-- Right elements -->
                                 <div class="d-flex align-items-center" style="margin-top: -20px">
-                                    <!-- Icon -->
+
                                     <a class="text-reset me-3" href="#">
                                         Language
                                         <i class="fas fa-caret-down"></i>
@@ -200,6 +202,7 @@
                                         Project
                                         <i class="fas fa-caret-down"></i>
                                     </a>
+                                    <!-- Icons -->
                                     <div class="dropdown">
                                         <a class="text-reset me-3 dropdown-toggle hidden-arrow" href="#"
                                             id="navbarDropdownMenuLink" role="button" data-mdb-toggle="dropdown"
@@ -210,13 +213,13 @@
 
                                     </div>
 
-                                    <!-- Notifications -->
+
                                     <div class="dropdown">
                                         <a class="text-reset me-3 dropdown-toggle hidden-arrow" href="#"
                                             id="navbarDropdownMenuLink" role="button" data-mdb-toggle="dropdown"
                                             aria-expanded="false">
                                             <i class="fas fa-bell"></i>
-                                            {{-- <span class="badge rounded-pill badge-notification bg-danger">1</span> --}}
+
                                         </a>
 
                                     </div>
@@ -231,7 +234,7 @@
                                     </div>
 
                                 </div>
-                                <!-- Right elements -->
+                                <!--// Right elements -->
 
                             </div>
                             <!-- Container wrapper -->
@@ -240,33 +243,51 @@
                         <div class="section">
                             <div class="container-fluid">
                                 <!-- divider -->
-                                <hr style="border: 1px solid #ddd">
+                                <hr>
+                                <div id="app">
+                                    {{ $slot }}
+                                </div>
                             </div>
                         </div>
                     </div>
                 </div>
             </div>
         </div>
-    </div>
 
-    {{ $slot }}
-    <script src="/js/vendor/modernizr-3.11.2.min.js"></script>
-    <script src="/js/plugins.js"></script>
-    <script src="/js/main.js"></script>
 
-    <!-- Google Analytics: change UA-XXXXX-Y to be your site's ID. -->
-    <script>
-        window.ga = function() {
-            ga.q.push(arguments)
-        };
-        ga.q = [];
-        ga.l = +new Date;
-        ga('create', 'UA-XXXXX-Y', 'auto');
-        ga('set', 'anonymizeIp', true);
-        ga('set', 'transport', 'beacon');
-        ga('send', 'pageview')
-    </script>
-    <script src="https://www.google-analytics.com/analytics.js" async></script>
+        <!-- Modal -->
+        <div class="modal fade" id="add-user-modal" tabindex="-1" aria-labelledby="AdduserModal" aria-hidden="true">
+            <div class="modal-dialog modal-xl">
+            <div class="modal-content">
+                <div class="modal-header">
+                <h5 class="modal-title">Add User</h5>
+                <button type="button" class="btn-close" data-mdb-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <form class="row add-user">
+                        <div class="col-md-12">
+                            <div class="form-group">
+                                <input type="text" name="employee_id" placeholder="Employee ID" required>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+                <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-mdb-dismiss="modal">Close</button>
+                <button type="button" class="btn btn-primary">Save changes</button>
+                </div>
+            </div>
+            </div>
+        </div>
+        <!--// Modal -->
+        <script src="/js/vendor/modernizr-3.11.2.min.js"></script>
+        <!-- MDB -->
+        <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mdb-ui-kit/4.0.0/mdb.min.js"></script>
+        <!-- jQuery -->
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js" integrity="sha512-894YE6QWD5I59HgZOGReFYm4dnWc1Qt5NtvYSaNcOP+u1T9qYdvdihz0PPSiiqn/+/3e7Jo4EaG7TubfWGUrMQ==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+        <script src="/js/plugins.js"></script>
+        <script src="/js/main.js"></script>
+
 </body>
 
 </html>
