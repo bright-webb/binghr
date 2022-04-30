@@ -3,6 +3,8 @@
 
 Binghr Take Home Assignment
 
+You can find the main file in applayout component, users data in users component
+
 
 
 ## Techstack

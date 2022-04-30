@@ -317,12 +317,12 @@
                         </div>
                         <div class="col-md-4">
                             <div class="form-group">
-                                <input type="type" class="form-control" name="password" id="pass1" placeholder="Password" required>
+                                <input type="password" class="form-control" name="password" id="pass1" placeholder="Password" required>
                             </div>
                         </div>
                         <div class="col-md-4">
                             <div class="form-group">
-                                <input type="type" class="form-control" name="password" id="pass2" placeholder="Confirm Password" required>
+                                <input type="password" class="form-control" name="password" id="pass2" placeholder="Confirm Password" required>
                             </div>
                         </div>
 

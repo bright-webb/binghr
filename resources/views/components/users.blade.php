@@ -27,7 +27,7 @@
           </div>
         </td>
         <td>
-            <span class="badge @if($user->is_read != NULL && $user->is_write != NULL && $user->is_delete != NULL && strtolower($user->type) == 'super admin')) badge-danger @elseif($user->is_read != NULL && $user->is_write == NULL && $user->is_delete != NULL) badge-primary @elseif($user->is_read != NULL && $user->is_write == NULL && $user->is_delete == NULL) badge-defualt @elseif($user->is_read != NULL && $user->is_write != NULL && $user->is_delete != NULL && strtolower($user->type) == "hr admin") badge-success @endif d-inline">
+            <span class="badge @if($user->is_read != NULL && $user->is_write != NULL && $user->is_delete != NULL && strtolower($user->type) == 'super admin')) badge-danger @elseif($user->is_read != NULL && $user->is_write == NULL && $user->is_delete != NULL) badge-primary @elseif($user->is_read != NULL && $user->is_write == NULL && $user->is_delete == NULL || strtolower($user->type) == "employee") badge-warning @elseif($user->is_read != NULL && $user->is_write != NULL && $user->is_delete != NULL && strtolower($user->type) == "hr admin") badge-success @endif d-inline">
                 {{ucwords($user->type)}}
             </span>
         </td>
