@@ -208,6 +208,13 @@ textarea {
     clear: right;
 }
 
+.users {
+    position: relative;
+    top: 70px;
+    border: 2px solid $primary;
+    background: white;
+}
+
 hr {
     border: 1px solid #f9fbfd;
 }
