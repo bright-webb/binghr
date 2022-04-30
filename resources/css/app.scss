@@ -161,6 +161,10 @@ textarea {
             &:active {
                 color: $primary;
             }
+            &:hover {
+                color: $primary !important;
+                border-right: 2px solid $primary;
+            }
         }
     }
 }
@@ -206,6 +210,21 @@ textarea {
 .float-right {
     float: right;
     clear: right;
+}
+
+.float-left {
+    float: left;
+    clear: left;
+}
+
+.main {
+    padding: 15px;
+}
+
+.search-table i {
+    position: absolute;
+    right: 120px;
+    margin-top: -25px;
 }
 
 .users {

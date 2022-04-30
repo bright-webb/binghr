@@ -142,6 +142,10 @@ textarea {
 .sidenav li a:active {
   color: #4d96ff;
 }
+.sidenav li a:hover {
+  color: #4d96ff !important;
+  border-right: 2px solid #4d96ff;
+}
 
 .active-link {
   color: #4d96ff !important;
@@ -184,6 +188,21 @@ textarea {
 .float-right {
   float: right;
   clear: right;
+}
+
+.float-left {
+  float: left;
+  clear: left;
+}
+
+.main {
+  padding: 15px;
+}
+
+.search-table i {
+  position: absolute;
+  right: 120px;
+  margin-top: -25px;
 }
 
 .users {
