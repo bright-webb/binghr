@@ -1,4 +1,4 @@
-<x-app-layout>
+<x-app-layout title="Home">
     <!-- Entry Point -->
     <div class="entry">
         <div class="float-right">
@@ -6,8 +6,12 @@
         </div>
 
         <div class="users">
-            <h4>Users</h4>
-            <x-users />
+            <div class="main">
+
+            </div>
+            <div id="data">
+                <x-users :users="$users"/>
+            </div>
         </div>
     </div>
     <!--// Entry Point -->

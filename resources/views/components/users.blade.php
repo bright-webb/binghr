@@ -2,109 +2,51 @@
     <thead class="bg-light">
       <tr>
         <th>Name</th>
-        <th>Title</th>
-        <th>Status</th>
-        <th>Position</th>
+        <th></th>
+        <th>Create Date</th>
+        <th>Role</th>
         <th>Actions</th>
       </tr>
     </thead>
     <tbody>
+      @if(count($users)>0)
+      @foreach ($users as $user)
       <tr>
         <td>
           <div class="d-flex align-items-center">
             <img
-                src="https://mdbootstrap.com/img/new/avatars/8.jpg"
+                src="/uploads/{{$user->employee_id}}/{{$user->profile_avatar}}"
                 alt=""
-                style="width: 45px; height: 45px"
+                style="width: 35px; height: 35px"
                 class="rounded-circle"
                 />
             <div class="ms-3">
-              <p class="fw-bold mb-1">John Doe</p>
-              <p class="text-muted mb-0">john.doe@gmail.com</p>
+              <p class="fw-bold mb-1">{{ucwords($user->fname.' '.$user->lname)}}</p>
+              <p class="text-muted mb-0">{{$user->email}}</p>
             </div>
           </div>
         </td>
         <td>
-          <p class="fw-normal mb-1">Software engineer</p>
-          <p class="text-muted mb-0">IT department</p>
+            <span class="badge @if($user->is_read != NULL && $user->is_write != NULL && $user->is_delete != NULL && strtolower($user->type) == 'super admin')) badge-danger @elseif($user->is_read != NULL && $user->is_write == NULL && $user->is_delete != NULL) badge-primary @elseif($user->is_read != NULL && $user->is_write == NULL && $user->is_delete == NULL) badge-defualt @elseif($user->is_read != NULL && $user->is_write != NULL && $user->is_delete != NULL && strtolower($user->type) == "hr admin") badge-success @endif d-inline">
+                {{ucwords($user->type)}}
+            </span>
         </td>
+
+        <td>{{$user->create_date}}</td>
+        <td>{{ucwords($user->type)}}
         <td>
-          <span class="badge badge-success rounded-pill d-inline">Active</span>
-        </td>
-        <td>Senior</td>
-        <td>
-          <button type="button" class="btn btn-link btn-sm btn-rounded">
-            Edit
-          </button>
+          <a href="javascript:void()" class="btn btn-link btn-rounded edit" id="{{$user->id}}">
+            <i class="fa fa-pencil"></i>
+          </a>
+          <a href="javascript:void()" class="btn btn-link btn-rounded delete" id="{{$user->id}}">
+            <i class="fa fa-trash"></i>
+          </a>
         </td>
       </tr>
-      <tr>
-        <td>
-          <div class="d-flex align-items-center">
-            <img
-                src="https://mdbootstrap.com/img/new/avatars/6.jpg"
-                class="rounded-circle"
-                alt=""
-                style="width: 45px; height: 45px"
-                />
-            <div class="ms-3">
-              <p class="fw-bold mb-1">Alex Ray</p>
-              <p class="text-muted mb-0">alex.ray@gmail.com</p>
-            </div>
-          </div>
-        </td>
-        <td>
-          <p class="fw-normal mb-1">Consultant</p>
-          <p class="text-muted mb-0">Finance</p>
-        </td>
-        <td>
-          <span class="badge badge-primary rounded-pill d-inline"
-                >Onboarding</span
-            >
-        </td>
-        <td>Junior</td>
-        <td>
-          <button
-                  type="button"
-                  class="btn btn-link btn-rounded btn-sm fw-bold"
-                  data-mdb-ripple-color="dark"
-                  >
-            Edit
-          </button>
-        </td>
-      </tr>
-      <tr>
-        <td>
-          <div class="d-flex align-items-center">
-            <img
-                src="https://mdbootstrap.com/img/new/avatars/7.jpg"
-                class="rounded-circle"
-                alt=""
-                style="width: 45px; height: 45px"
-                />
-            <div class="ms-3">
-              <p class="fw-bold mb-1">Kate Hunington</p>
-              <p class="text-muted mb-0">kate.hunington@gmail.com</p>
-            </div>
-          </div>
-        </td>
-        <td>
-          <p class="fw-normal mb-1">Designer</p>
-          <p class="text-muted mb-0">UI/UX</p>
-        </td>
-        <td>
-          <span class="badge badge-warning rounded-pill d-inline">Awaiting</span>
-        </td>
-        <td>Senior</td>
-        <td>
-          <button
-                  type="button"
-                  class="btn btn-link btn-rounded btn-sm fw-bold"
-                  data-mdb-ripple-color="dark"
-                  >
-            Edit
-          </button>
-        </td>
-      </tr>
+
+      @endforeach
+      @else
+        <p>No Data</p>
+      @endif
     </tbody>
   </table>

@@ -3,7 +3,7 @@
 
 <head>
     <meta charset="utf-8">
-    <title></title>
+    <title>{{$title}}</title>
     <meta name="description" content="">
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
@@ -244,7 +244,7 @@
                             <div class="container-fluid">
                                 <!-- divider -->
                                 <hr>
-                                <div id="app">
+                                <div id="main">
                                     {{ $slot }}
                                 </div>
                             </div>
@@ -305,6 +305,8 @@
                                     <option value="">Select Role Type</option>
                                     <option value="admin">Admin</option>
                                     <option value="super admin">Super Admin</option>
+                                    <option value="employee">Employee</option>
+                                    <option value="hr admin">HR Admin</option>
                                 </select>
                             </div>
                         </div>
@@ -315,12 +317,12 @@
                         </div>
                         <div class="col-md-4">
                             <div class="form-group">
-                                <input type="text" class="form-control" name="password" id="pass1" placeholder="Password" required>
+                                <input type="type" class="form-control" name="password" id="pass1" placeholder="Password" required>
                             </div>
                         </div>
                         <div class="col-md-4">
                             <div class="form-group">
-                                <input type="text" class="form-control" name="password" id="pass2" placeholder="Confirm Password" required>
+                                <input type="type" class="form-control" name="password" id="pass2" placeholder="Confirm Password" required>
                             </div>
                         </div>
 
@@ -338,19 +340,19 @@
                                     <td><strong>Super Admin</strong></td>
                                     <td>
                                         <div class="form-check">
-                                        <input class="form-check-input" type="checkbox" name="read" value="" checked disabled/>
+                                        <input class="form-check-input" type="checkbox" name="super_read" value="1"/>
                                         <label class="form-check-label" for="flexCheckDefault"></label>
                                       </div>
                                     </td>
                                     <td>
                                         <div class="form-check">
-                                        <input class="form-check-input" type="checkbox" name="write" value="" checked disabled/>
+                                        <input class="form-check-input" type="checkbox" name="super_write" value="1"/>
                                         <label class="form-check-label" for="flexCheckDefault"></label>
                                       </div>
                                     </td>
                                     <td>
                                         <div class="form-check">
-                                        <input class="form-check-input" type="checkbox" name="ddlete" value="" checked disabled/>
+                                        <input class="form-check-input" type="checkbox" name="super_delete" value="1"/>
                                         <label class="form-check-label" for="flexCheckDefault"></label>
                                       </div>
                                     </td>
@@ -360,19 +362,19 @@
                                     <td><strong>Admin</strong></td>
                                     <td>
                                         <div class="form-check">
-                                        <input class="form-check-input" type="checkbox" name="read" value="" checked disabled/>
+                                        <input class="form-check-input" type="checkbox" name="admin_read" value="1"/>
                                         <label class="form-check-label" for="flexCheckDefault"></label>
                                       </div>
                                     </td>
                                     <td>
                                         <div class="form-check">
-                                        <input class="form-check-input" type="checkbox" name="write" value="" />
+                                        <input class="form-check-input" type="checkbox" name="admin_write" value="1" disabled/>
                                         <label class="form-check-label" for="flexCheckDefault"></label>
                                       </div>
                                     </td>
                                     <td>
                                         <div class="form-check">
-                                        <input class="form-check-input" type="checkbox" name="ddlete" value="" checked disabled/>
+                                        <input class="form-check-input" type="checkbox" name="admin_delete" value="1"/>
                                         <label class="form-check-label" for="flexCheckDefault"></label>
                                       </div>
                                     </td>
@@ -382,19 +384,19 @@
                                     <td><strong>Employee</strong></td>
                                     <td>
                                         <div class="form-check">
-                                        <input class="form-check-input" type="checkbox" name="read" value="" checked disabled/>
+                                        <input class="form-check-input" type="checkbox" name="employee_read" value="1"/>
                                         <label class="form-check-label" for="flexCheckDefault"></label>
                                       </div>
                                     </td>
                                     <td>
                                         <div class="form-check">
-                                        <input class="form-check-input" type="checkbox" name="write" value=""/>
+                                        <input class="form-check-input" type="checkbox" name="employee_write" value="1" disabled/>
                                         <label class="form-check-label" for="flexCheckDefault"></label>
                                       </div>
                                     </td>
                                     <td>
                                         <div class="form-check">
-                                        <input class="form-check-input" type="checkbox" name="ddlete" value="" checked disabled/>
+                                        <input class="form-check-input" type="checkbox" name="employee_delete" value="1" disabled/>
                                         <label class="form-check-label" for="flexCheckDefault"></label>
                                       </div>
                                     </td>
@@ -404,19 +406,19 @@
                                     <td><strong>HR Admin</strong></td>
                                     <td>
                                         <div class="form-check">
-                                        <input class="form-check-input" type="checkbox" name="read" value="" checked disabled/>
+                                        <input class="form-check-input" type="checkbox" name="hr_read" value="1"/>
                                         <label class="form-check-label" for="flexCheckDefault"></label>
                                       </div>
                                     </td>
                                     <td>
                                         <div class="form-check">
-                                        <input class="form-check-input" type="checkbox" name="write" value="" checked disabled/>
+                                        <input class="form-check-input" type="checkbox" name="hr_write" value="1" disabled/>
                                         <label class="form-check-label" for="flexCheckDefault"></label>
                                       </div>
                                     </td>
                                     <td>
                                         <div class="form-check">
-                                        <input class="form-check-input" type="checkbox" name="ddlete" value="" checked disabled/>
+                                        <input class="form-check-input" type="checkbox" name="hr_delete" value="1"/>
                                         <label class="form-check-label" for="flexCheckDefault"></label>
                                       </div>
                                     </td>
@@ -435,6 +437,27 @@
             </div>
         </div>
         <!--// Modal -->
+
+
+
+               <!-- Modal -->
+               <div class="modal fade" id="update-user-modal" tabindex="-1" aria-labelledby="AdduserModal" aria-hidden="true">
+                <div class="modal-dialog modal-xl">
+                <div class="modal-content">
+                    <div class="modal-header">
+                    <h5 class="modal-title">Update User</h5>
+                    <button type="button" class="btn-close cl" data-mdb-dismiss="modal" aria-label="Close"></button>
+                    </div>
+                    <div id="edit-data">
+
+                    </div>
+                </div>
+                </div>
+            </div>
+            <!--// Modal -->
+
+
+        <input type="hidden" class="_token" name="_token" value="{{csrf_token()}}">
         <script src="/js/vendor/modernizr-3.11.2.min.js"></script>
         <!-- MDB -->
         <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mdb-ui-kit/4.0.0/mdb.min.js"></script>

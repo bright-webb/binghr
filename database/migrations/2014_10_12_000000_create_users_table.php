@@ -25,6 +25,9 @@ return new class extends Migration
             $table->timestamp('email_verified_at')->nullable();
             $table->string('password');
             $table->string('create_date');
+            $table->boolean("is_read")->nullable();
+            $table->boolean("is_write")->nullable();
+            $table->boolean("is_delete")->nullable();
             $table->string('profile_avatar');
             $table->rememberToken();
             $table->timestamps();

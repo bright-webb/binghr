@@ -16,6 +16,10 @@ use App\Http\Controllers\PostController;
 */
 
 Route::get('/', [HomeController::class, 'index']);
+Route::get('/edit/{user}', [HomeController::class, 'edit']);
+Route::get('/data', [HomeController::class, 'data']);
 
 //Handle post requests
+Route::post('/post/update-user', [PostController::class, 'update_user']);
 Route::post('/post/add-user', [PostController::class, 'add_user']);
+Route::post('/post/delete', [PostController::class, 'delete']);
