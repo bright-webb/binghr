@@ -263,19 +263,174 @@
                 <h5 class="modal-title">Add User</h5>
                 <button type="button" class="btn-close" data-mdb-dismiss="modal" aria-label="Close"></button>
                 </div>
+                <form class="add-user">
+                    <input type="hidden" name="_token" value="{{ csrf_token() }}">
                 <div class="modal-body">
-                    <form class="row add-user">
-                        <div class="col-md-12">
+                    <div class="row g-3">
+                        <div class="col-md-7">
                             <div class="form-group">
-                                <input type="text" name="employee_id" placeholder="Employee ID" required>
+                                <input type="text" class="form-control" name="employee_id" placeholder="Employee ID" required>
                             </div>
                         </div>
-                    </form>
+                        <div class="col-md-5">
+                            <div class="form-group">
+                                <input type="file" class="form-control" name="image" required>
+                            </div>
+                        </div>
+
+                        <div class="col-md-6">
+                            <div class="form-group">
+                                <input type="text" class="form-control" name="fname" placeholder="First Name" required>
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <div class="form-group">
+                                <input type="text" class="form-control" name="lname" placeholder="Last Name" required>
+                            </div>
+                        </div>
+
+                        <div class="col-md-4">
+                            <div class="form-group">
+                                <input type="text" class="form-control" name="email" placeholder="Email ID" required>
+                            </div>
+                        </div>
+                        <div class="col-md-4">
+                            <div class="form-group">
+                                <input type="text" class="form-control" name="mobile" placeholder="Mobile Number" required>
+                            </div>
+                        </div>
+                        <div class="col-md-4">
+                            <div class="form-group">
+                                <select class="form-control" name="role" required>
+                                    <option value="">Select Role Type</option>
+                                    <option value="admin">Admin</option>
+                                    <option value="super admin">Super Admin</option>
+                                </select>
+                            </div>
+                        </div>
+                        <div class="col-md-4">
+                            <div class="form-group">
+                                <input type="text" class="form-control" name="username" placeholder="Username" required>
+                            </div>
+                        </div>
+                        <div class="col-md-4">
+                            <div class="form-group">
+                                <input type="text" class="form-control" name="password" id="pass1" placeholder="Password" required>
+                            </div>
+                        </div>
+                        <div class="col-md-4">
+                            <div class="form-group">
+                                <input type="text" class="form-control" name="password" id="pass2" placeholder="Confirm Password" required>
+                            </div>
+                        </div>
+
+                        <table class="table align-middle mb-0 bg-white">
+                            <thead class="bg-light">
+                                <tr>
+                                    <th>Module Permission</th>
+                                    <th>Read</th>
+                                    <th>Write</th>
+                                    <th>Delete</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td><strong>Super Admin</strong></td>
+                                    <td>
+                                        <div class="form-check">
+                                        <input class="form-check-input" type="checkbox" name="read" value="" checked disabled/>
+                                        <label class="form-check-label" for="flexCheckDefault"></label>
+                                      </div>
+                                    </td>
+                                    <td>
+                                        <div class="form-check">
+                                        <input class="form-check-input" type="checkbox" name="write" value="" checked disabled/>
+                                        <label class="form-check-label" for="flexCheckDefault"></label>
+                                      </div>
+                                    </td>
+                                    <td>
+                                        <div class="form-check">
+                                        <input class="form-check-input" type="checkbox" name="ddlete" value="" checked disabled/>
+                                        <label class="form-check-label" for="flexCheckDefault"></label>
+                                      </div>
+                                    </td>
+                                </tr>
+
+                                <tr>
+                                    <td><strong>Admin</strong></td>
+                                    <td>
+                                        <div class="form-check">
+                                        <input class="form-check-input" type="checkbox" name="read" value="" checked disabled/>
+                                        <label class="form-check-label" for="flexCheckDefault"></label>
+                                      </div>
+                                    </td>
+                                    <td>
+                                        <div class="form-check">
+                                        <input class="form-check-input" type="checkbox" name="write" value="" />
+                                        <label class="form-check-label" for="flexCheckDefault"></label>
+                                      </div>
+                                    </td>
+                                    <td>
+                                        <div class="form-check">
+                                        <input class="form-check-input" type="checkbox" name="ddlete" value="" checked disabled/>
+                                        <label class="form-check-label" for="flexCheckDefault"></label>
+                                      </div>
+                                    </td>
+                                </tr>
+
+                                <tr>
+                                    <td><strong>Employee</strong></td>
+                                    <td>
+                                        <div class="form-check">
+                                        <input class="form-check-input" type="checkbox" name="read" value="" checked disabled/>
+                                        <label class="form-check-label" for="flexCheckDefault"></label>
+                                      </div>
+                                    </td>
+                                    <td>
+                                        <div class="form-check">
+                                        <input class="form-check-input" type="checkbox" name="write" value=""/>
+                                        <label class="form-check-label" for="flexCheckDefault"></label>
+                                      </div>
+                                    </td>
+                                    <td>
+                                        <div class="form-check">
+                                        <input class="form-check-input" type="checkbox" name="ddlete" value="" checked disabled/>
+                                        <label class="form-check-label" for="flexCheckDefault"></label>
+                                      </div>
+                                    </td>
+                                </tr>
+
+                                <tr>
+                                    <td><strong>HR Admin</strong></td>
+                                    <td>
+                                        <div class="form-check">
+                                        <input class="form-check-input" type="checkbox" name="read" value="" checked disabled/>
+                                        <label class="form-check-label" for="flexCheckDefault"></label>
+                                      </div>
+                                    </td>
+                                    <td>
+                                        <div class="form-check">
+                                        <input class="form-check-input" type="checkbox" name="write" value="" checked disabled/>
+                                        <label class="form-check-label" for="flexCheckDefault"></label>
+                                      </div>
+                                    </td>
+                                    <td>
+                                        <div class="form-check">
+                                        <input class="form-check-input" type="checkbox" name="ddlete" value="" checked disabled/>
+                                        <label class="form-check-label" for="flexCheckDefault"></label>
+                                      </div>
+                                    </td>
+                                </tr>
+                            </tbody>
+                        </table>
+
+                </div>
                 </div>
                 <div class="modal-footer">
-                <button type="button" class="btn btn-secondary" data-mdb-dismiss="modal">Close</button>
-                <button type="button" class="btn btn-primary">Save changes</button>
+                <button type="submit" class="btn btn-primary">Add User</button>
+                <button type="button" class="btn btn-default" data-mdb-dismiss="modal">Close</button>
                 </div>
+            </form>
             </div>
             </div>
         </div>
